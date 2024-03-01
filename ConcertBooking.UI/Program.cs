@@ -15,6 +15,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped<IArtistRepo, ArtistRepo>();
 builder.Services.AddScoped<IVenueRepo, VenueRepo>();
 builder.Services.AddScoped<IConcertRepo, ConcertRepo>();
+builder.Services.AddScoped<IUtilityRepo, UtilityRepo>();
 
 var app = builder.Build();
 

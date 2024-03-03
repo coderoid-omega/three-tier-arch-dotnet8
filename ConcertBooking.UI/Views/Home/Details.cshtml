@@ -1,0 +1,49 @@
+﻿@model ConcertBooking.UI.ViewModels.HomePageViewModels.HomePageDetailVM
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Concert Details</h1>
+
+<div>
+    <div class="row">
+        <div class="col-6">
+            <img src="@Model.ConcertImageUrl" class="mt-3" width="600" height="350"/>
+        </div>
+        <div class="col-6">
+            <div class="mt-3">
+                @Html.DisplayNameFor(model => model.ConcertId) : @Html.DisplayFor(model => model.ConcertId)
+            </div>
+            <div>
+                @Html.DisplayNameFor(model => model.ConcertName) : @Html.DisplayFor(model => model.ConcertName)
+            </div>
+            <div>
+                @Html.DisplayNameFor(model => model.Description) : @Html.DisplayFor(model => model.Description)
+            </div>
+            <div>
+                @Html.DisplayNameFor(model => model.VenueName) : @Html.DisplayFor(model => model.VenueName)
+            </div>
+            <div>
+                @Html.DisplayNameFor(model => model.VenueAddress) : @Html.DisplayFor(model => model.VenueAddress)
+            </div>
+            <div>
+                @Html.DisplayNameFor(model => model.ConcertDate) : @Model.ConcertDate.ToString("MMM, dd yyyy")
+            </div>
+            <div class="mt-2">
+                <img src="@Model.ArtistImageUrl" class="rounded-circle img-fluid" style="height:100px;width:100px;" />
+            </div>
+            <div>
+                @Html.DisplayNameFor(model => model.ArtistName) : @Html.DisplayFor(model => model.ArtistName)
+            </div>
+            <div class="mt-3">
+                <a asp-action="AvailableTickets" asp-route-concertId="@Model.ConcertId" class="btn btn-success">See Available Tickets</a>
+            </div>
+        </div>
+    </div>
+    <hr />
+    
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

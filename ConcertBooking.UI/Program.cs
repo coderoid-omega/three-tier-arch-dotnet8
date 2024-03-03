@@ -17,6 +17,7 @@ builder.Services.AddScoped<IVenueRepo, VenueRepo>();
 builder.Services.AddScoped<IConcertRepo, ConcertRepo>();
 builder.Services.AddScoped<IUtilityRepo, UtilityRepo>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddScoped<ITicketRepo, TicketRepo>();
 
 var app = builder.Build();
 

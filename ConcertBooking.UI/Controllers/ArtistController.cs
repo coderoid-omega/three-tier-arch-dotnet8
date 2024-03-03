@@ -60,7 +60,8 @@ namespace ConcertBooking.UI.Controllers
             }
             else
             {
-                ArtistViewModel vm = new ArtistViewModel {  
+                EditArtistViewModel vm = new EditArtistViewModel
+                {  
                     Id = id, Name = artist.Name, Bio = artist.Bio, ImageUrl = artist.ImageUrl 
                 };
                 return View(vm);

@@ -9,11 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThreeTierArch.Repositories"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThreeTierArch.UI", "ThreeTierArch.UI\ThreeTierArch.UI.csproj", "{663B1405-B3DA-466A-B804-86A41DD306CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConcertBooking.Entities", "ConcertBooking.Entities\ConcertBooking.Entities.csproj", "{2BAF3397-4569-49D0-95FC-4826DBCEB037}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConcertBooking.Entities", "ConcertBooking.Entities\ConcertBooking.Entities.csproj", "{2BAF3397-4569-49D0-95FC-4826DBCEB037}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConcertBooking.Repositories", "ConcertBooking.Repositories\ConcertBooking.Repositories.csproj", "{B8CA6932-2DBF-4FF2-9D11-BAE9876FD0F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConcertBooking.Repositories", "ConcertBooking.Repositories\ConcertBooking.Repositories.csproj", "{B8CA6932-2DBF-4FF2-9D11-BAE9876FD0F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConcertBooking.UI", "ConcertBooking.UI\ConcertBooking.UI.csproj", "{43A79F33-431E-4072-A3D4-96CD95FAD296}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConcertBooking.UI", "ConcertBooking.UI\ConcertBooking.UI.csproj", "{43A79F33-431E-4072-A3D4-96CD95FAD296}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConcertBooking.Infrastructure", "ConcertBooking.Infrastructure\ConcertBooking.Infrastructure.csproj", "{341F2FE2-BCCA-464D-9860-B32F22A1166C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{43A79F33-431E-4072-A3D4-96CD95FAD296}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43A79F33-431E-4072-A3D4-96CD95FAD296}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43A79F33-431E-4072-A3D4-96CD95FAD296}.Release|Any CPU.Build.0 = Release|Any CPU
+		{341F2FE2-BCCA-464D-9860-B32F22A1166C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{341F2FE2-BCCA-464D-9860-B32F22A1166C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{341F2FE2-BCCA-464D-9860-B32F22A1166C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{341F2FE2-BCCA-464D-9860-B32F22A1166C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -49,7 +49,9 @@
                 @Html.DisplayFor(modelItem => item.ArtistName)
             </td>
             <td>
-                <partial name="_ActionLinks" model="item.Id" />
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Show Bookings", "GetAllBookings", new { concertId = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
             </td>
         </tr>
 }

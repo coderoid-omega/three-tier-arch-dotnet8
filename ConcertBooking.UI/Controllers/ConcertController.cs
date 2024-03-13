@@ -1,6 +1,7 @@
 ﻿using ConcertBooking.Entities;
 using ConcertBooking.Repositories.Interfaces;
 using ConcertBooking.UI.ViewModels;
+using ConcertBooking.UI.ViewModels.TicketsViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -12,13 +13,15 @@ namespace ConcertBooking.UI.Controllers
         private readonly IUtilityRepo _utilityRepo;
         private readonly IArtistRepo _artistRepo;
         private readonly IVenueRepo _venueRepo;
+        private readonly IBookingRepo _bookingRepo;
         private readonly string containerName = "Concerts";
-        public ConcertController(IConcertRepo concertRepo, IUtilityRepo utilityRepo, IArtistRepo artistRepo, IVenueRepo venueRepo)
+        public ConcertController(IConcertRepo concertRepo, IUtilityRepo utilityRepo, IArtistRepo artistRepo, IVenueRepo venueRepo, IBookingRepo bookingRepo)
         {
             _concertRepo = concertRepo;
             _utilityRepo = utilityRepo;
             _artistRepo = artistRepo;
             _venueRepo = venueRepo;
+            _bookingRepo = bookingRepo;
         }
         public async Task<IActionResult> Index()
         {
@@ -109,6 +112,20 @@ namespace ConcertBooking.UI.Controllers
             await _utilityRepo.DeleteImage(containerName, concert.ImageUrl);
             await _concertRepo.RemoveData(concert);
             return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> GetAllBookings(int concertId)
+        {
+            var bookings = await _bookingRepo.GetAll(concertId);
+            var vm = bookings.Select(m => new AdminBookingViewModel { 
+                BookingId = m.Id ,
+                Bookingdate = m.BookingDate,
+                ConcertName = m.Concert.Name,
+                UserId = m.User.Id,
+                UserName = m.User.UserName,
+                SeatNumber = string.Join(",", m.Tickets.Select(m => m.SeatNumber))
+            });
+            return View(vm);
         }
     }
 }

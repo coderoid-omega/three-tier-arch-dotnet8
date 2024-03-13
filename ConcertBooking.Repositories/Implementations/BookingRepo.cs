@@ -1,5 +1,6 @@
 ﻿using ConcertBooking.Entities;
 using ConcertBooking.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace ConcertBooking.Repositories.Implementations
 {
@@ -11,6 +12,16 @@ namespace ConcertBooking.Repositories.Implementations
         {
             await _context.Bookings.AddAsync(booking);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<Booking>> GetAll(int concertId)
+        {
+            var bookings= await _context.Bookings.Where(m => m.ConcertId == concertId)
+                .Include(m => m.Tickets)
+                .Include(m => m.Concert)
+                .Include(m => m.User)
+                .ToListAsync();
+            return bookings;
         }
     }
 }

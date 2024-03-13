@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ConcertBooking.Entities;
 
 namespace ConcertBooking.Repositories.Interfaces
 {
     public interface ITicketRepo
     {
         public Task<List<int>> GetBookedSeatNumber(int concertId);
+        public Task<IEnumerable<Booking>> GetUserBookings(string userId);
     }
 }

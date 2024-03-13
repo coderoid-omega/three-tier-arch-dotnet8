@@ -35,6 +35,7 @@ builder.Services.AddScoped<ITicketRepo, TicketRepo>();
 builder.Services.AddScoped<IDbInitialize, DbInitialize>();
 //EmailSender Class to be implemented when using Custom identity provider instead of Default Identity Provider
 builder.Services.AddScoped<IEmailSender, EmailSender>();
+builder.Services.AddScoped<IBookingRepo, BookingRepo>();
 
 builder.Services.ConfigureApplicationCookie(options =>
 {

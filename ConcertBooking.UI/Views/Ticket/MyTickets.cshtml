@@ -1,7 +1,47 @@
-﻿
+﻿@using ConcertBooking.UI.ViewModels.TicketsViewModel
+@model IEnumerable<BookingViewModel>
 @{
     ViewData["Title"] = "MyTickets";
 }
+@if(Model == null || Model.Count() == 0)
+{
+    <div class="alert alert-warning">
+        No tickets available
+    </div>
+}
+else
+{
+    foreach(var booking in Model)
+    {
+        <div class="card mb-4" id="booking-@booking.BookingId">
+            <div class="card-header">
+                Booking ID : @booking.BookingId - Date: @booking.BookingDate.ToString("dd/MM/yyyy")
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Concert : @booking.ConcertName</h5>
+                <ul class="list-group">
+                    @foreach(var seat in booking.Tickets)
+                    {
+                        <li class="list-group-item">SeatNumber: @seat.SeatNumber  </li>
+                    }
+                </ul>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-primary" onclick="printTicket('@booking.BookingId')">
+                    Print Ticket
+                </button>
+            </div>
+        </div>
+    }
+}
 
-<h1>MyTickets</h1>
-
+@section scripts{
+    <script>
+        function printTicket(bookingId) { 
+            var element = document.getElementById('booking-' + bookingId);
+            element.classList.add('print-section');
+            window.print();
+            element.classList.remove('print-section');
+        }
+    </script>
+}

@@ -30,7 +30,7 @@ namespace ConcertBooking.UI.Controllers
                     Tickets = booking.Tickets.Select(m => new TicketViewModel { SeatNumber = m.SeatNumber}).ToList()
                 });
             }
-            return View();
+            return View(bookings);
         }
     }
 }

@@ -14,6 +14,8 @@ namespace ThreeTierArch.Repositories
         public DbSet<State> States { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<UserInfo> UserInfos { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Skill> Skills { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -38,6 +40,9 @@ namespace ThreeTierArch.Repositories
             //UserInfos Configuration
             modelBuilder.Entity<UserInfo>().Property(m => m.Username).HasColumnType("Varchar(100)").IsRequired();
             modelBuilder.Entity<UserInfo>().HasIndex(m => m.Username).IsUnique();
+
+            //StudentSkill Configuration
+            modelBuilder.Entity<StudentSkill>().HasKey(m => new { m.StudentId, m.SkillId });
         }
 
     }

@@ -30,7 +30,10 @@ namespace ThreeTierArch.Repositories.Implementations
 
         public async Task<Student?> GetStudentById(int id)
         {
-            var student = await _context.Students.Where(m => m.Id == id).FirstOrDefaultAsync();
+            var student = await _context.Students
+                .Include(m => m.StudentSkills)
+                .Where(m => m.Id == id)
+                .FirstOrDefaultAsync();
             return student;
         }
 

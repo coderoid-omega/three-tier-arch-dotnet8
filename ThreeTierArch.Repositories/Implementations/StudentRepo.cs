@@ -32,6 +32,7 @@ namespace ThreeTierArch.Repositories.Implementations
         {
             var student = await _context.Students
                 .Include(m => m.StudentSkills)
+                .Include(m => m.PermanentAddress)
                 .Where(m => m.Id == id)
                 .FirstOrDefaultAsync();
             return student;

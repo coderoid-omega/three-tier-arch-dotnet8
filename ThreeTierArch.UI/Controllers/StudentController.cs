@@ -41,6 +41,7 @@ namespace ThreeTierArch.UI.Controllers
             var selectedSkills = model.Skills.Where(m => m.IsChecked).ToList();
             var student = new Student();
             student.Name = model.StudentName;
+            student.PermanentAddress = model.PhysicalAddress;
             student.StudentSkills = new List<StudentSkill>();
             foreach(var item in selectedSkills)
             {
@@ -61,6 +62,7 @@ namespace ThreeTierArch.UI.Controllers
             var model = new StudentEditVm();
             model.Id = student.Id;
             model.StudentName = student.Name;
+            model.PhysicalAddress = student.PermanentAddress;
             var skills = await _skillRepo.GetAllSkill();
             foreach (var skill in skills)
             {
@@ -80,6 +82,9 @@ namespace ThreeTierArch.UI.Controllers
             var student = await _studentRepo.GetStudentById(model.Id);
             var existingSkills = student.StudentSkills.Select(m => m.SkillId).ToList();
             student.Name = model.StudentName;
+            student.PermanentAddress.AddressLine1 = model.PhysicalAddress.AddressLine1;
+            student.PermanentAddress.AddressLine2 = model.PhysicalAddress.AddressLine2;
+            student.PermanentAddress.Pincode = model.PhysicalAddress.Pincode;
             var selectedSkills = model.Skills.Where(m => m.IsChecked).Select(m => m.SkillId).ToList();
 
             var toRemove = existingSkills.Except(selectedSkills).ToList();

@@ -16,7 +16,21 @@
                 <input asp-for="StudentName" class="form-control" />
                 <span asp-validation-for="StudentName" class="text-danger"></span>
             </div>
-            
+            <div class="form-group">
+                <label asp-for="PhysicalAddress.AddressLine1" class="control-label"></label>
+                <input asp-for="PhysicalAddress.AddressLine1" class="form-control" />
+                <span asp-validation-for="PhysicalAddress.AddressLine1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhysicalAddress.AddressLine2" class="control-label"></label>
+                <input asp-for="PhysicalAddress.AddressLine2" class="form-control" />
+                <span asp-validation-for="PhysicalAddress.AddressLine2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhysicalAddress.Pincode" class="control-label"></label>
+                <input asp-for="PhysicalAddress.Pincode" class="form-control" />
+                <span asp-validation-for="PhysicalAddress.Pincode" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label class="control-label"> Student Skills</label>
                 <div class="row">

@@ -28,12 +28,17 @@ namespace ThreeTierArch.UI.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(SkillViewModel model)
         {
-            Skill skill = new Skill()
+            if (ModelState.IsValid)
             {
-                Title = model.Title
-            };
-            await _skillRepo.SaveSkill(skill);
-            return RedirectToAction("Index");
+                Skill skill = new Skill()
+                {
+                    Title = model.Title
+                };
+                await _skillRepo.SaveSkill(skill);
+                return RedirectToAction("Index");
+            }
+            return View(model);
+            
         }
 
         public async Task<IActionResult> Edit(int id)
